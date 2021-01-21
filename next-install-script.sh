@@ -35,7 +35,7 @@ const port = process.env.PORT || 3000
     process.exit(1)
   }
 })()
-" >> server/index.ts
+" >>server/index.ts
 
 # create tsconfig.server.json
 echo '{
@@ -45,7 +45,7 @@ echo '{
         "outDir": "dist",
         "noEmit": false
     }
-}' >> tsconfig.server.json
+}' >>tsconfig.server.json
 
 # edit package.json
 npm install -g json
@@ -107,7 +107,7 @@ module.exports = {
         },
       },
     ],
-  }" >> .eslintrc.js
+  }" >>.eslintrc.js
 
 # prettier
 echo "// .prettierrc.js
@@ -120,7 +120,7 @@ module.exports = {
     printWidth: 100,
     tabWidth: 2,
     useTabs: false,
-  }" >> .prettierrc.js
+  }" >>.prettierrc.js
 
 # vscode setting
 mkdir -p .vscode
@@ -135,7 +135,7 @@ echo '// .vscode/settings.json
     "strings": true
   },
 }
-' >> .vscode/settings.json
+' >>.vscode/settings.json
 
 # tailwindcss
 echo "module.exports = {
@@ -149,7 +149,7 @@ echo "module.exports = {
   },
   plugins: [],
 }
-" >> tailwind.config.js
+" >>tailwind.config.js
 
 # postcss
 echo "module.exports = {
@@ -158,25 +158,27 @@ echo "module.exports = {
     autoprefixer: {},
   },
 }
-" >> postcss.config.js
+" >>postcss.config.js
 
 # global.css
 mkdir -p styles
 echo "@tailwind base;
 @tailwind components;
 @tailwind utilities;
-" >> styles/global.css
+" >>styles/global.css
 
 # _app.tsx
 echo "import '../styles/global.css'
+import type { AppProps /*, AppContext */ } from 'next/app'
 
-export default function App({ Component, pageProps }) {
+export default function App({ Component, pageProps }: AppProps) {
   return (
     <div>
       <Component {...pageProps} />
     </div>
   )
-}" >> pages/_app.tsx
+}
+" >>pages/_app.tsx
 
 #run vscode
 code .
