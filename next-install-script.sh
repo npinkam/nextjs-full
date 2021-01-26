@@ -8,7 +8,6 @@ npm install --save-dev eslint-plugin-react eslint-plugin-react-hooks eslint-plug
 npm install --save-dev prettier eslint-plugin-prettier eslint-config-prettier
 npm install tailwindcss@latest postcss@latest autoprefixer@latest
 npm install --legacy-peer-deps eslint-plugin-tailwind
-npm install --save-dev --unsafe-perm node-sass
 
 #create express server: index.ts
 mkdir -p server
